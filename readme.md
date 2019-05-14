@@ -21,3 +21,6 @@ https://www.w3schools.com/jsref/jsref_includes_array.asp
   var fruits = ["Banana", "Orange", "Apple", "Mango"];
   var n = fruits.includes("Mango");
 ```
+
+Rotating arrays:
+http://geekswithblogs.net/cwilliams/archive/2008/06/16/122906.aspx
