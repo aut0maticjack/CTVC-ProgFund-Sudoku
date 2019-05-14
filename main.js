@@ -30,14 +30,16 @@ function GenerateBoard() {
       
       for(var innerIndex=0; innerIndex < boardRow.length; innerIndex++){
         var cellCandidate = 0;
+        var testing = true
         cellCandidate = RandomNumberBetween(1, 9);
-        if(boardRow.includes(cellCandidate)){
-            document.write( outerIndex + outerIndex + "Dup!!!");
-
-        }
-
+  			while(testing == true);
+        	if(boardRow.includes(cellCandidate)){
+    				cellCandidate = RandomNumberBetween(1, 9); 
+					}
+          else {
         mainBoard[outerIndex][innerIndex] = cellCandidate;
-        
+        testing = false;
+        }
       }
   }
   return(mainBoard);
