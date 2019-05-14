@@ -1,0 +1,16 @@
+.pseudocode, .output{
+	background : #ffffff;
+	border     : 1px solid #ccc;
+	color      : #000;
+	font-family: "Courier New", sans-serif;
+	font-size  : 1.0em;
+	overflow   : auto;
+	padding    : 10px;
+}
+
+header, footer{
+  background-color : #ffffff;
+  display          : block;
+  color            : #000000;
+  padding          : 10px;
+}

@@ -1,0 +1,75 @@
+body, p,h1,h2{font-family: Arial, Helvetica, sans-serif;}
+.container{
+  border: 1px solid #ddd;
+  -webkit-box-shadow : 5px 5px 5px #ddd;
+     -moz-box-shadow : 5px 5px 5px #ddd;
+          box-shadow : 5px 5px 5px #ddd;
+  margin             : 0px auto;
+  padding            : 10px;
+  width              : 940px; 
+}
+
+h1{margin:0px;}
+
+header{
+  margin: -10px -10px 0px -10px;		
+}
+
+header, footer{
+  background-color : #666;
+  display          : block;
+  color            : #FFF;
+  padding          : 10px;
+}
+
+
+header h2 a{
+	text-decoration : none;
+	color           : #fff;
+	}
+
+footer{
+  margin: 0px -10px -10px -10px;	
+
+}
+
+.output{
+  background-color: #ccc;
+  display         : block;
+  padding         : 20px;
+	overflow        : auto
+}
+
+code.varname, code.keyword{color: #090};
+
+p.lab_link{
+  background-color: #ddd;	
+  border          : 1px solid #999;
+  padding         : 4px;
+}
+
+table{
+  border       : 1px solid #999;	
+	margin-bottom: 10px;
+}
+
+table th{
+  background-color: #CCC;
+}
+
+.pseudocode {
+	background : #151515;
+	border     : 1px solid #ccc;
+	color      : #22FF22;
+	font-family: "Courier New", sans-serif;
+	font-size  : 1.0em;
+	overflow   : auto;
+	padding    : 10px;
+}
+
+.notice{
+	background-color: #FF9;
+	border          : 1px solid #F00;
+	font-weight     : bolder;
+	padding         : 4px;
+}
