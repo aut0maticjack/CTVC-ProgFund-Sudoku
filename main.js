@@ -10,39 +10,20 @@ function RandomNumberBetween(min, max) { //inclusive of min/max
   return(result);
 }
 
-function GenerateBoard() {
- // this makes a 9x9 filled it with numbers that conform to the rules of sudoku.
-  var mainBoard = [
-  ["", "", "", "", "", "", "", "", ""],
-  ["", "", "", "", "", "", "", "", ""],
-  ["", "", "", "", "", "", "", "", ""],
-  ["", "", "", "", "", "", "", "", ""],
-  ["", "", "", "", "", "", "", "", ""],
-  ["", "", "", "", "", "", "", "", ""],
-  ["", "", "", "", "", "", "", "", ""],
-  ["", "", "", "", "", "", "", "", ""],
-  ["", "", "", "", "", "", "", "", ""]
-  ];
-  
-  //iterate over the array and fill it with (eventualy sudoku compliant) numbers 
-  for(var outerIndex=0; outerIndex < mainBoard.length; outerIndex++){
-    var boardRow = mainBoard[outerIndex];
-      
-      for(var innerIndex=0; innerIndex < boardRow.length; innerIndex++){
-        var cellCandidate = 0;
-        cellCandidate = RandomNumberBetween(1, 9);
-        if(boardRow.includes(cellCandidate)){
-            document.write("Duplicate! - Row: " + outerIndex + " Col: " +
-            innerIndex + " #: " + cellCandidate + "<br>");
+function RandomElementFromArray(theArray) {
 
-        }
-
-        mainBoard[outerIndex][innerIndex] = cellCandidate;
-        
-      }
-  }
-  return(mainBoard);
+  var result = theArray[Math.floor(Math.random() * theArray.length)];
+  return(result);
 }
+
+function FilterArray(dataArray,filterArray) {
+
+  var result = dataArray.filter(item => !filterArray.includes(item))
+  return(result);
+}
+
+
+  
 
 function ColumnsToRows(oldBoard) {
  //takes a 9x9 array filled with sudoku numbers and transforms (mirrors?) it
@@ -179,6 +160,42 @@ function SquaresToRows(oldBoard) {
       
   
   return(newBoard);
+}
+
+function GenerateBoard() {
+ // this makes a 9x9 filled it with numbers that conform to the rules of sudoku.
+  var mainBoard = [
+  ["", "", "", "", "", "", "", "", ""],
+  ["", "", "", "", "", "", "", "", ""],
+  ["", "", "", "", "", "", "", "", ""],
+  ["", "", "", "", "", "", "", "", ""],
+  ["", "", "", "", "", "", "", "", ""],
+  ["", "", "", "", "", "", "", "", ""],
+  ["", "", "", "", "", "", "", "", ""],
+  ["", "", "", "", "", "", "", "", ""],
+  ["", "", "", "", "", "", "", "", ""]
+  ];
+  
+  var oneThoughNine = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+  //iterate over the array and fill it with (eventualy sudoku compliant) numbers 
+  for(var outerIndex=0; outerIndex < mainBoard.length; outerIndex++){
+    var boardRow = mainBoard[outerIndex];
+      
+      for(var innerIndex=0; innerIndex < boardRow.length; innerIndex++){
+        var cellCandidate = 0;
+        cellCandidate = RandomElementFromArray(oneThoughNine);
+        if(boardRow.includes(cellCandidate)){
+            document.write("Duplicate! - Row: " + outerIndex + " Col: " +
+            innerIndex + " #: " + cellCandidate + "<br>");
+
+        }
+
+        mainBoard[outerIndex][innerIndex] = cellCandidate;
+        
+      }
+  }
+  return(mainBoard);
 }
 
 function Main() {

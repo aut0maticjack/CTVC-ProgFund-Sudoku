@@ -24,3 +24,14 @@ https://www.w3schools.com/jsref/jsref_includes_array.asp
 
 Rotating arrays:
 http://geekswithblogs.net/cwilliams/archive/2008/06/16/122906.aspx
+
+
+https://en.wikipedia.org/wiki/Backtracking
+
+How did I miss this earlier... / This is deeper than i expected.
+https://en.wikipedia.org/wiki/Sudoku_solving_algorithms
+
+This is really what i want for building my candidate arrays but i understand it,
+not at all, so... later...
+
+https://stackoverflow.com/questions/11076067/finding-matches-between-multiple-javascript-arrays
