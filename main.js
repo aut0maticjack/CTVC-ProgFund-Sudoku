@@ -32,8 +32,8 @@ function GenerateBoard() {
         var cellCandidate = 0;
         cellCandidate = RandomNumberBetween(1, 9);
         if(boardRow.includes(cellCandidate)){
-            document.write("Outer: " + outerIndex + "Inner:" + outerIndex +
-            "Dup!!!" + "<br>");
+            document.write("Outer: " + outerIndex + "Inner:" + innerIndex +
+            "#:" + cellCandidate + "<br>");
 
         }
 
@@ -45,7 +45,7 @@ function GenerateBoard() {
 }
 
 function ColumnsToRows(oldBoard) {
- //takes a 9x9 array filled with sudoku numbers and transforms it
+ //takes a 9x9 array filled with sudoku numbers and transforms (mirrors?) it
  //so the subarrays (rows) in the new one are the columns of the old one.
  //used for checking board correctness.  
   var newBoard = [
