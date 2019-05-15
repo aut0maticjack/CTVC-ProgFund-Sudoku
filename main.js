@@ -32,7 +32,8 @@ function GenerateBoard() {
         var cellCandidate = 0;
         cellCandidate = RandomNumberBetween(1, 9);
         if(boardRow.includes(cellCandidate)){
-            document.write( outerIndex + outerIndex + "Dup!!!");
+            document.write("Outer: " + outerIndex + "Inner:" + outerIndex +
+            "Dup!!!" + "<br>");
 
         }
 
@@ -41,13 +42,57 @@ function GenerateBoard() {
       }
   }
   return(mainBoard);
+}
 
+function ColumnsToRows(oldBoard) {
+ //takes a 9x9 array filled with sudoku numbers and transforms it
+ //so the subarrays (rows) in the new one are the columns of the old one.
+ //used for checking board correctness.  
+  var newBoard = [
+  ["", "", "", "", "", "", "", "", ""],
+  ["", "", "", "", "", "", "", "", ""],
+  ["", "", "", "", "", "", "", "", ""],
+  ["", "", "", "", "", "", "", "", ""],
+  ["", "", "", "", "", "", "", "", ""],
+  ["", "", "", "", "", "", "", "", ""],
+  ["", "", "", "", "", "", "", "", ""],
+  ["", "", "", "", "", "", "", "", ""],
+  ["", "", "", "", "", "", "", "", ""]
+  ];
+  
+  //iterate over the array and make a new array where old column = new row 
+  for(var outerIndex=0; outerIndex < oldBoard.length; outerIndex++){
+    var boardRow = oldBoard[outerIndex];
+      
+      for(var innerIndex=0; innerIndex < boardRow.length; innerIndex++){  
+
+        newBoard[innerIndex][outerIndex] = oldBoard[outerIndex][innerIndex] ;
+        
+      }
+  }
+  return(newBoard);
 }
 function Main() {
-  var boardState = GenerateBoard();
-  for(var index=0; index < boardState.length; index++){
-  document.write(boardState[index] + "<br>");
-}
+  var boardRowsFirst = GenerateBoard();
+  var boardColsFirst = ColumnsToRows(boardRowsFirst);
+
+//var boardSqrsFirst = SquaresToRows(boardRowsFirst); //WIP
+
+  for(var indexRows=0; indexRows < boardRowsFirst.length; indexRows++){
+    document.write(boardRowsFirst[indexRows] + "<br>");
+  }
+  
+  document.write("<br>");
+  
+  for(var indexCols=0; indexCols < boardColsFirst.length; indexCols++){
+  document.write(boardColsFirst[indexCols] + "<br>");
+  }
+  //for(var indexSqrs=0; indexSqrs < boardSqrsFirst.length; indexSqrs++){ //WIP
+  //document.write(boardSqrsFirst[indexSqrs] + "<br>");
+  //}
 }
 
+
 Main();
+
+
