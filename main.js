@@ -16,7 +16,7 @@ function RandomElementFromArray(theArray) {
   return(result);
 }
 
-function FilterArray(dataArray,filterArray) {
+function FilterArrayWithArray(dataArray,filterArray) {
 
   var result = dataArray.filter(item => !filterArray.includes(item))
   return(result);
