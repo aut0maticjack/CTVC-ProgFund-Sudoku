@@ -32,8 +32,8 @@ function GenerateBoard() {
         var cellCandidate = 0;
         cellCandidate = RandomNumberBetween(1, 9);
         if(boardRow.includes(cellCandidate)){
-            document.write("Outer: " + outerIndex + "Inner:" + innerIndex +
-            "#:" + cellCandidate + "<br>");
+            document.write("Duplicate! - Row: " + outerIndex + " Col: " +
+            innerIndex + " #: " + cellCandidate + "<br>");
 
         }
 
