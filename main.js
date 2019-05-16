@@ -18,7 +18,7 @@ function RandomElementFromArray(theArray) {
 
 function FilterArrayWithArray(dataArray,filterArray) {
 
-  var result = dataArray.filter(item => !filterArray.includes(item))
+  var result = dataArray.filter(item => !filterArray.includes(item));
   return(result);
 }
 
@@ -162,8 +162,68 @@ function SquaresToRows(oldBoard) {
   return(newBoard);
 }
 
+function GetSquareIndex(outerIndex, innerIndex) {
+/*
+  This takes the coordinates of a cell in a 9x9 array and decides which 3x3
+  subarray it also belongs to. outer=rows=x, inner=cols=y. 
+  This is 0 indexed so 1-9 is actually 0-8 etc
+*/
+  var squareIndex = 0;
+        if (outerIndex >= 0 && outerIndex <= 2) {
+          if (innerIndex >= 0 && innerIndex <= 2){
+            squareIndex = 0;
+          }
+          else if (innerIndex >= 3 && innerIndex <= 5){
+            squareIndex = 1;
+          }
+          else if (innerIndex >= 6 && innerIndex <= 8){
+            squareIndex = 2;
+          }
+          else {
+            document.write("squareIndex our of range - Row: " + outerIndex +
+            " Col: " + innerIndex + " #: " + cellCandidate + "<br>");
+          }
+        }
+        else if (outerIndex >= 3 && outerIndex <= 5) {
+          if (innerIndex >= 0 && innerIndex <= 2){
+            squareIndex = 3;
+          }
+          else if (innerIndex >= 3 && innerIndex <= 5){
+            squareIndex = 4;
+          }
+          else if (innerIndex >= 6 && innerIndex <= 8){
+            squareIndex = 5;
+          }
+          else {
+            document.write("squareIndex our of range - Row: " + outerIndex +
+            " Col: " + innerIndex + " #: " + cellCandidate + "<br>");
+          }
+        }
+        else if (outerIndex >= 6 && outerIndex <= 8) {
+          if (innerIndex >= 0 && innerIndex <= 2){
+            squareIndex = 6;
+          }
+          else if (innerIndex >= 3 && innerIndex <= 5){
+            squareIndex = 7;
+          }
+          else if (innerIndex >= 6 && innerIndex <= 8){
+            squareIndex = 8;
+          }
+          else {
+            document.write("squareIndex our of range - Row: " + outerIndex +
+            " Col: " + innerIndex + " #: " + cellCandidate + "<br>");
+          }
+        }
+        else {
+            document.write("squareIndex our of range - Row: " + outerIndex +
+            " Col: " + innerIndex + " #: " + cellCandidate + "<br>");
+        }
+ return(squareIndex);
+}
+
+
 function GenerateBoard() {
- // this makes a 9x9 filled it with numbers that conform to the rules of sudoku.
+ // this makes a 9x9 filled it with numbers that conform to the rules of Sudoku.
   var mainBoard = [
   ["", "", "", "", "", "", "", "", ""],
   ["", "", "", "", "", "", "", "", ""],
@@ -178,19 +238,24 @@ function GenerateBoard() {
   
   var oneThoughNine = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-  //iterate over the array and fill it with (eventualy sudoku compliant) numbers 
+  //iterate over the array and fill it with (eventually Sudoku compliant) numbers 
   for(var outerIndex=0; outerIndex < mainBoard.length; outerIndex++){
     var boardRow = mainBoard[outerIndex];
       
       for(var innerIndex=0; innerIndex < boardRow.length; innerIndex++){
         var cellCandidate = 0;
-        var cellOptions = oneThoughNine
+        var cellOptions = oneThoughNine;
         var boardColsFirst = ColumnsToRows(mainBoard);
         var boardSqrsFirst = SquaresToRows(mainBoard); 
-        
-        cellOptions = FilterArrayWithArray(cellOptions,mainBoard[outerIndex])
-        cellOptions = FilterArrayWithArray(cellOptions,boardColsFirst[innerIndex])
-        
+        var squareIndex = GetSquareIndex(outerIndex, innerIndex); 
+
+        //rows and columns are linearish and pretty straight-forward to check...
+        cellOptions = FilterArrayWithArray(cellOptions,mainBoard[outerIndex]);
+        cellOptions = FilterArrayWithArray(cellOptions,boardColsFirst[innerIndex]);
+        //the 3x3 squares... OTOH their index function is bigger than this one...
+        cellOptions = FilterArrayWithArray(cellOptions,boardSqrsFirst[squareIndex]);
+
+
         
         cellCandidate = RandomElementFromArray(cellOptions);
         
@@ -201,6 +266,9 @@ function GenerateBoard() {
             innerIndex + " #: " + cellCandidate + "<br>");
 
         }
+
+        cellOptions = FilterArrayWithArray(cellOptions,boardSqrsFirst[squareIndex]);
+
 
         mainBoard[outerIndex][innerIndex] = cellCandidate;
         

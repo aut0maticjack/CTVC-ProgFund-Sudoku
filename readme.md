@@ -10,7 +10,11 @@ Patrick O'Connell
 
 Copyright 2019 Patrick O'Connell, all rights reserved.
 
-
+This still needs backtracking and (eventually variable difficulty) 
+masking written to make games that are playable.
+once that is written that basic engine should be able to both generate and 
+solve puzzles.
+it also needs more work on the UI (lol) to even be playable with pen and paper.
 
 NOTES:
 https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
@@ -29,6 +33,7 @@ http://geekswithblogs.net/cwilliams/archive/2008/06/16/122906.aspx
 https://en.wikipedia.org/wiki/Backtracking
 
 How did I miss this earlier... / This is deeper than I expected.
+
 https://en.wikipedia.org/wiki/Sudoku_solving_algorithms
 
 This is probably really what I want for building my candidate arrays but I 
