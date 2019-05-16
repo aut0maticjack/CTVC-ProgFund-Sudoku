@@ -184,7 +184,18 @@ function GenerateBoard() {
       
       for(var innerIndex=0; innerIndex < boardRow.length; innerIndex++){
         var cellCandidate = 0;
-        cellCandidate = RandomElementFromArray(oneThoughNine);
+        var cellOptions = oneThoughNine
+        var boardColsFirst = ColumnsToRows(mainBoard);
+        var boardSqrsFirst = SquaresToRows(mainBoard); 
+        
+        cellOptions = FilterArrayWithArray(cellOptions,mainBoard[outerIndex])
+        cellOptions = FilterArrayWithArray(cellOptions,boardColsFirst[innerIndex])
+        
+        
+        cellCandidate = RandomElementFromArray(cellOptions);
+        
+        
+        
         if(boardRow.includes(cellCandidate)){
             document.write("Duplicate! - Row: " + outerIndex + " Col: " +
             innerIndex + " #: " + cellCandidate + "<br>");
@@ -201,7 +212,6 @@ function GenerateBoard() {
 function DebugBoardState() {
   var boardRowsFirst = GenerateBoard();
   var boardColsFirst = ColumnsToRows(boardRowsFirst);
-
   var boardSqrsFirst = SquaresToRows(boardRowsFirst); 
 
   for(var indexRows=0; indexRows < boardRowsFirst.length; indexRows++){

@@ -28,10 +28,16 @@ http://geekswithblogs.net/cwilliams/archive/2008/06/16/122906.aspx
 
 https://en.wikipedia.org/wiki/Backtracking
 
-How did I miss this earlier... / This is deeper than i expected.
+How did I miss this earlier... / This is deeper than I expected.
 https://en.wikipedia.org/wiki/Sudoku_solving_algorithms
 
-This is really what i want for building my candidate arrays but i understand it,
-not at all, so... later...
+This is probably really what I want for building my candidate arrays but I 
+understand it, not at all, so... later...
 
 https://stackoverflow.com/questions/11076067/finding-matches-between-multiple-javascript-arrays
+
+this is only tangentially related but everyone that uses array.filter uses this 
+ahem "stuff" liberally too, so I needed to understand it at least a little.
+  
+https://codeburst.io/javascript-arrow-functions-for-beginners-926947fc0cdc
+https://gomakethings.com/why-i-dont-use-let-const-or-fat-arrow-functions-and-you-shouldnt-either/
