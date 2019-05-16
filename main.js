@@ -198,11 +198,11 @@ function GenerateBoard() {
   return(mainBoard);
 }
 
-function Main() {
+function DebugBoardState() {
   var boardRowsFirst = GenerateBoard();
   var boardColsFirst = ColumnsToRows(boardRowsFirst);
 
-  var boardSqrsFirst = SquaresToRows(boardRowsFirst); //WIP
+  var boardSqrsFirst = SquaresToRows(boardRowsFirst); 
 
   for(var indexRows=0; indexRows < boardRowsFirst.length; indexRows++){
     document.write(boardRowsFirst[indexRows] + "<br>");
@@ -216,9 +216,13 @@ function Main() {
 
   document.write("<br>");
 
-  for(var indexSqrs=0; indexSqrs < boardSqrsFirst.length; indexSqrs++){ //WIP
+  for(var indexSqrs=0; indexSqrs < boardSqrsFirst.length; indexSqrs++){ 
   document.write(boardSqrsFirst[indexSqrs] + "<br>");
   }
+}
+
+function Main() {
+  DebugBoardState();
 }
 
 
